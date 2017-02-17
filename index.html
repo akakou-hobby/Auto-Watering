@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Auto-Watering-Setting</title>
+
+    <!-- httpgetをするjs関数 -->
+    <script type="text/javascript">
+    var geturl = "../cgi-bin/httpget.py/?foo";
+    var getbeforetxt = "../CoH.txt";
+
+    //HTTPGETの実行
+    function JumpHTTPGETPage(){
+        var InputString = JumpHTTPGETPage_form.textbox.value;
+        if (InputString != "") {
+            var URLwillJump = geturl + " = " + InputString;
+            location.href = URLwillJump;
+        } else {
+            alert("You didn't enter to textbox ! Please enter a value !")
+        }
+    }
+    //今現在のデータ(txtファイル)にアクセス
+    function JumpBeforeData() {
+        location.href = getbeforetxt;
+    }
+    </script>
+</head>
+
+
+
+<body>
+    <!-- 送信フォーム等 -->
+    <h1>
+    <p style="text-align:center;">Please enter how much do you want to water to your plants.</p>
+    <h1>
+	<style>
+	h1 {
+  	color:black;
+  	text-shadow:
+	2px 2px 0px #939393,
+	4px 4px 0px #1c1c1c;
+	font-size:70px;
+	}
+p{
+  animation: poyon 3.1s linear 0s 1;
+}
+
+@keyframes poyon {
+  0%   { transform: scale(0.8, 1.4) translate(0%, -100%); }
+  10%  { transform: scale(0.8, 1.4) translate(0%, -15%); }
+  20%  { transform: scale(1.4, 0.6) translate(0%, 30%); }
+  30%  { transform: scale(0.9, 1.1) translate(0%, -10%); }
+  40%  { transform: scale(0.95, 1.2) translate(0%, -30%); }
+  50%  { transform: scale(0.95, 1.2) translate(0%, -10%); }
+  60%  { transform: scale(1.1, 0.9) translate(0%, 5%); }
+  70%  { transform: scale(1.0, 1.0) translate(0%, 0%); }
+  100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+}
+
+	ts{
+  color: #fff;
+  font-size: 72px;
+  letter-spacing: 4px;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  text-shadow: 0 0 12px #fff;
+}
+body{
+  background: linear-gradient(to bottom,
+    hsl(180, 80%, 40%),
+    hsl(240, 80%, 60%),
+    hsl(300, 80%, 40%));
+  background-size: 400% 400%;
+  animation: AnimationName 5s ease infinite;
+}
+@keyframes AnimationName {
+  0% { background-position: 50% 0% }
+  50% { background-position: 50% 45% }
+  100% { background-position: 50% 0% }
+}
+	</style>
+	<form style="text-align:center;" name="JumpHTTPGETPage_form">
+        <input type="text" name="textbox">
+        <input type="text" name="dummy" style="display:none;">
+        <input type="button" value="Save" onclick="JumpHTTPGETPage(geturl)">
+    </form>
+    <!-- 今現在のデータ確認 -->
+    <h2>
+    <button type="button" nclick=JumpBeforeData()>Check Data</button>
+    <h2>
+    <style>
+    h2{
+    text-align:center;
+    font-size:15px;
+    }
+    </style>
+    </button>
+</body>
+</html>
