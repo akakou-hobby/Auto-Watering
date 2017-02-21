@@ -21,7 +21,7 @@ def get_setting_data():
     def set_int(string_num):
         #テキストのデータを切り取って、整数型へ変換
         result = string_num[7:]
-        result = int(string_num)
+        result = int(result)
         return result
 
     set_data = load_file()
