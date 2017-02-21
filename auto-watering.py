@@ -9,13 +9,10 @@ import hard_contral
 def get_setting_data():
     ###ファイルの読み込み
     def load_file():
-        file_data = ""
         #ファイルの読み込み
-        file_name = open_file("CoH.txt")
-        open_files = open(file_name, 'r')
-        for row in open_files:
-            file_data = file_data + row
-        f.close()
+        file_ = open('CoH.txt')
+        file_data = file_.read()  # ファイル終端まで全て読んだデータを返す
+        file_.close()
 
         return file_data
 
