@@ -1,6 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import commands
 import time
-import threading
 import start_server
 import hard_contral
 
