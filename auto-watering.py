@@ -4,6 +4,7 @@ import commands
 import time
 import start_server
 import hard_contral
+import os
 
 
 ###セッティングデータの読み込み -----------------------------------------------------
@@ -34,11 +35,17 @@ def main_contral():
     #セッティングの受け取り
     set_data = get_setting_data()
     #センサーデータの受け取り
-    senser_data = commands.getoutput("sudo node senser.js")
+    senser_data = commands.getoutput("sudo node index.js")
+    senser_data = int(senser_data)
 
     #セッティングデータとセンサデータを比較し、センサーデータの方が小さかったら水をやる
     if set_data > senser_data:
-        hard_contral.pump()
+        hard_contral.pump(4,5)
+
+    ###print
+    print "setting data :" , set_data 
+    print "senser_data :" , senser_data
+    print set_data > senser_data
 
 
 if __name__ == '__main__':
@@ -46,4 +53,6 @@ if __name__ == '__main__':
 
     while True:
         main_contral()
-        time.sleep(300)
+	for num in range(15):
+            time.sleep(1)
+	    print "time :" , num
