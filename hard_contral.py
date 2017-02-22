@@ -5,6 +5,7 @@ import time
 
 ### 水やり
 def pump(PIN,time_len):
+    gpio.setmode(gpio.BCM)
     gpio.setup(PIN, gpio.OUT)
     gpio.output(PIN, 1)
     time.sleep(time_len)
