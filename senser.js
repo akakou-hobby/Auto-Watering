@@ -47,12 +47,13 @@ var initHandler = function() {
 
         cs.write(HIGH); //end
 
-        //TODO:�出力
+        //TODO:��出力
         console.log('result : ', result);
     };
-
+ 
     readValue()
 
 };
 
 raspi.init(initHandler);
+
