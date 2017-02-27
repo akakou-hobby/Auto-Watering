@@ -12,4 +12,6 @@ def server():
 def open_server():
     # スレッドの設定
     th = threading.Thread(target=server, name="server", args=())
+    th.setDaemon(True)
     th.start()
+

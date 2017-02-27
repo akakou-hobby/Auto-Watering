@@ -5,6 +5,13 @@ import time
 import start_server
 import hard_contral
 import os
+import sys
+import signal
+
+###強制終了 ---------------------------------------------------------------------
+def exit_handler(signal, frame):
+	print("\nExit")
+	sys.exit(0)
 
 
 ###セッティングデータの読み込み -----------------------------------------------------
@@ -43,16 +50,18 @@ def main_contral():
         hard_contral.pump(4,5)
 
     ###print
-    print "setting data :" , set_data 
+    print "setting data :" , set_data
     print "senser_data :" , senser_data
     print set_data > senser_data
 
 
 if __name__ == '__main__':
     start_server.open_server()
+    signal.signal(signal.SIGINT, exit_handler)
 
     while True:
         main_contral()
 	for num in range(15):
             time.sleep(1)
 	    print "time :" , num
+
